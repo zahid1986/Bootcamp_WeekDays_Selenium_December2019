@@ -109,7 +109,7 @@ public class WebAPI {
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false") String cloudEnvName,
                       @Optional("OS X") String os, @Optional("10") String os_version, @Optional("chrome-options") String browserName, @Optional("34")
-                              String browserVersion, @Optional("https://jqueryui.com/") String url) throws IOException {
+                              String browserVersion, @Optional("https://learn.letskodeit.com/") String url) throws IOException {
         //System.setProperty("webdriver.chrome.driver", "/Users/peoplentech/eclipse-workspace-March2018/SeleniumProject1/driver/chromedriver");
         if (useCloudEnv == true) {
             if (cloudEnvName.equalsIgnoreCase("browserstack")) {
@@ -247,14 +247,19 @@ public class WebAPI {
             }
         }
     }
-
-    public void clearField(String locator) {
+// clean the text
+    public static void clearField(String locator) {
         driver.findElement(By.id(locator)).clear();
     }
-
+    public static void cleanField(String locator) {
+        driver.findElement(By.xpath(locator)).clear();
+    }
+//
     public static void navigateBack() {
         driver.navigate().back();
     }
+
+    // screenshot capture
 
     public static void captureScreenshot(WebDriver driver, String screenshotName) {
         DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
@@ -311,12 +316,15 @@ public class WebAPI {
         driver.findElement(By.cssSelector(locator)).sendKeys(value, Keys.ENTER);
     }
 
-    public void typeByXpath(String locator, String value) {
+    public static void typeByXpath(String locator, String value) {
         driver.findElement(By.xpath(locator)).sendKeys(value);
     }
 
     public void takeEnterKeys(String locator) {
         driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
+    }
+    public void takeEnterKeys1(String locator) {
+        driver.findElement(By.xpath(locator)).sendKeys(Keys.ENTER);
     }
 
     public void clearInputField(String locator) {
@@ -365,7 +373,7 @@ public class WebAPI {
         return list;
     }
 
-    public List<WebElement> getListOfWebElementsByXpath(String locator) {
+    public static List<WebElement> getListOfWebElementsByXpath(String locator) {
         List<WebElement> list = new ArrayList<WebElement>();
         list = driver.findElements(By.xpath(locator));
         return list;
@@ -376,7 +384,7 @@ public class WebAPI {
         return url;
     }
 
-    public void navigateForward() {
+    public static void navigateForward() {
         driver.navigate().forward();
     }
 
@@ -447,28 +455,44 @@ public class WebAPI {
     }
 
     //handling Alert
-    public void okAlert() {
+    public static void okAlert() {
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
 
-    public void cancelAlert() {
+    public static void cancelAlert() {
         Alert alert = driver.switchTo().alert();
         alert.dismiss();
     }
 
     //iFrame Handle
-    public void iframeHandle(WebElement element) {
+    public static void iframeHandle(WebElement element) {
         driver.switchTo().frame(element);
     }
 
-    public void goBackToHomeWindow() {
+    public static void  goBackToHomeWindow() {
         driver.switchTo().defaultContent();
     }
 
     //get Links
-    public void getLinks(String locator) {
+    public static void getLinks(String locator) {
         driver.findElement(By.linkText(locator)).findElement(By.tagName("a")).getText();
+    }
+
+    public static void getLinkByAttribute() {
+        List<WebElement> elements = driver.findElements(By.tagName("a"));
+        for (int i = 0; i < elements.size(); i++) {
+            System.out.println(elements.get(i).getAttribute("href"));
+        }
+    }
+        public static void getLinkByAttribute2(String xpath) {
+            driver.findElement(By.xpath(xpath)).getAttribute("href");
+    }
+    public static void getSingleLink(String linkName) {
+
+        driver.findElement(By.linkText(linkName)).getAttribute("href");
+        //link.getAttribute("href");
+        System.out.println(driver.findElement(By.linkText(linkName)).getAttribute("href"));
     }
 
     //Taking Screen shots
@@ -500,16 +524,25 @@ public class WebAPI {
          */
     }
 
-    public void clearInput(String locator) {
+    public static void clearInput(String locator) {
         driver.findElement(By.cssSelector(locator)).clear();
     }
 
-    public void keysInput(String locator) {
+    public static void keysInput(String locator) {
         driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
     }
 
     //Handling New Tabs
     public static WebDriver handleNewTab(WebDriver driver1) {
+        String oldTab = driver1.getWindowHandle();
+        List<String> newTabs = new ArrayList<String>(driver1.getWindowHandles());
+        newTabs.remove(oldTab);
+        driver1.switchTo().window(newTabs.get(0));
+        return driver1;
+    }
+
+    //Handling New Window
+    public static WebDriver handleNewWindow(WebDriver driver1) {
         String oldTab = driver1.getWindowHandle();
         List<String> newTabs = new ArrayList<String>(driver1.getWindowHandles());
         newTabs.remove(oldTab);
@@ -577,7 +610,7 @@ public class WebAPI {
 
     }
 
-    public void clearInputBox(WebElement webElement) {
+    public static void clearInputBox(WebElement webElement) {
         webElement.clear();
     }
     public String getTextByWebElement(WebElement webElement) {
@@ -597,8 +630,25 @@ public class WebAPI {
         System.out.println("PASS");
     }
 
+    //Select From single Menu
+    public static void selectFromDrop(String locator1, String locator2){
+        WebElement element = driver.findElement(By.xpath(locator1));
+        Select drpWrd = new Select(element);
+        drpWrd.selectByValue(locator2); }
+
+
+    //Select From Multiple Menu
+    public static void selectFromMultipleDrop(String locator1, String locator2,String locator3, String locator4){
+        WebElement element = driver.findElement(By.xpath(locator1));
+        Select drpWrd = new Select(element);
+        drpWrd.selectByValue(locator2);
+        drpWrd.selectByValue(locator3);
+        drpWrd.selectByValue(locator4);
+    }
 
 
 
 
-}
+
+    }
+

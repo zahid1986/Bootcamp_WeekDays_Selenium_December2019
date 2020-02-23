@@ -22,7 +22,7 @@ public class ConnectToSqlDB {
     public static Properties loadProperties() throws IOException {
         Properties prop = new Properties();
         //InputStream ism = new FileInputStream("/secret.properties");
-        InputStream ism = new FileInputStream("../Generic/src/main/secret.properties");
+        InputStream ism = new FileInputStream("/Users/zahidhasan/IdeaProjects/Bootcamp_WeekDays_Selenium_December2019/Genaric/src/main/java/secret.properties");
         prop.load(ism);
         ism.close();
         return prop;
@@ -40,7 +40,7 @@ public class ConnectToSqlDB {
         return connect;
     }
 
-    public List<String> readDataBase(String tableName, String columnName)throws Exception {
+    public static List<String> readDataBase(String tableName, String columnName)throws Exception {
         List<String> data = new ArrayList<String>();
 
         try {
@@ -56,7 +56,7 @@ public class ConnectToSqlDB {
         return data;
     }
 
-    private void close() {
+    private static void close() {
         try{
             if(resultSet != null){
                 resultSet.close();
@@ -72,7 +72,7 @@ public class ConnectToSqlDB {
         }
     }
 
-    private List<String> getResultSetData(ResultSet resultSet2, String columnName) throws SQLException {
+    private static List<String> getResultSetData(ResultSet resultSet2, String columnName) throws SQLException {
         List<String> dataList = new ArrayList<String>();
         while(resultSet.next()){
             String itemName = resultSet.getString(columnName);
@@ -159,7 +159,7 @@ public class ConnectToSqlDB {
             e.printStackTrace();
         }
     }*/
-    public void insertDataFromArrayListToSqlTable(List<String> list, String tableName, String columnName)
+    public static void insertDataFromArrayListToSqlTable(List<String> list, String tableName, String columnName)
     {
         try {
             connectToSqlDatabase();

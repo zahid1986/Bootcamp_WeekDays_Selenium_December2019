@@ -1,0 +1,41 @@
+-------------------------------------------------------------------------------
+Test set: testhomepage.TestHomePage
+-------------------------------------------------------------------------------
+Tests run: 67, Failures: 3, Errors: 0, Skipped: 64, Time elapsed: 31.853 s <<< FAILURE! - in testhomepage.TestHomePage
+testPracticeButton(testhomepage.TestHomePage)  Time elapsed: 12.181 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//a[@class='fedora-navbar-link navbar-link']"}
+  (Session info: chrome=80.0.3987.116)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'Zahids-MacBook-Air.local', ip: 'fe80:0:0:0:1c9b:4b86:7861:2bce%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.3', java.version: '13.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.116, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: /var/folders/_z/jvjpm13s061...}, goog:chromeOptions: {debuggerAddress: localhost:56085}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 67dec2ebdb69a5b8ca777b466a9c52e4
+*** Element info: {Using=xpath, value=//a[@class='fedora-navbar-link navbar-link']}
+	at testhomepage.TestHomePage.testPracticeButton(TestHomePage.java:20)
+
+testRadioButton(testhomepage.TestHomePage)  Time elapsed: 2.026 s  <<< FAILURE!
+org.openqa.selenium.NoSuchWindowException: 
+no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=80.0.3987.116)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'Zahids-MacBook-Air.local', ip: 'fe80:0:0:0:1c9b:4b86:7861:2bce%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.3', java.version: '13.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.116, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: /var/folders/_z/jvjpm13s061...}, goog:chromeOptions: {debuggerAddress: localhost:56110}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 1f11d12e9cbc7973a4e1e07544904306
+*** Element info: {Using=xpath, value=//a[@class='fedora-navbar-link navbar-link']}
+	at testhomepage.TestHomePage.testRadioButton(TestHomePage.java:28)
+
+afterEachTestMethod(testhomepage.TestHomePage)  Time elapsed: 2.157 s  <<< FAILURE!
+org.openqa.selenium.NoSuchWindowException: 
+no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=80.0.3987.116)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'Zahids-MacBook-Air.local', ip: 'fe80:0:0:0:1c9b:4b86:7861:2bce%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.3', java.version: '13.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.116, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: /var/folders/_z/jvjpm13s061...}, goog:chromeOptions: {debuggerAddress: localhost:56110}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 1f11d12e9cbc7973a4e1e07544904306
+
