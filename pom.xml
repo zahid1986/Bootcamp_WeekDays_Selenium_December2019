@@ -156,9 +156,14 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <!--  <suiteXmlFiles>target/test-classes/AmazonTestRunner.xml</suiteXmlFiles>  -->
-                    </suiteXmlFiles>
+                    <includes>
+                        <include>GooglePageTestRunner.xml</include>
+                        <include>JqueryTestRunner.xml</include>
+                        <include>LearnLetsKodRunner.xml</include>
+                    </includes>
+<!--                    <suiteXmlFiles>-->
+<!--                        <suiteXmlFiles>src/main/resources/GooglePageTestRunner.xml</suiteXmlFiles>-->
+<!--                    </suiteXmlFiles>-->
                 </configuration>
             </plugin>
             <!-- Reporting -->
